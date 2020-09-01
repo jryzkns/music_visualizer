@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 function love.load()
-    local SOUND_PATH = "onandon.mp3"
+    local SOUND_PATH = "senpercent.mp3"
     
     SND_WINDOW_SIZE = 800
     N_BINS = 25
@@ -23,7 +23,7 @@ function love.load()
     SEEK_BAR_X, SEEK_BAR_Y = BAR_H_XLATE, BAR_V_XLATE + 10
     SEEK_BAR_W, SEEK_BAR_H = BAR_TTL_W, 10
     
-    paused = false
+    paused = true
     sound, pb_time = love.audio.newSource(b["raws"]), 0
     ttl_min = math.floor(sound:getDuration()/60)
     ttl_sec = sound:getDuration() - ttl_min * 60
@@ -84,7 +84,7 @@ function love.keypressed(key)
 end
 
 function love.draw()
-    love.graphics.printf("Music Visualizer - jryzkns 2020)", 0, 0, 600)
+    love.graphics.printf("Music Visualizer - jryzkns 2020", 0, 0, 600)
 
     res_draw = utils:ease(res)
     love.graphics.setLineWidth(5)
